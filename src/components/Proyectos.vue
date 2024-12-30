@@ -18,7 +18,7 @@
               :href="repo.html_url"
               target="_blank"
               rel="noopener noreferrer"
-              class="btn btn-primary"
+              class="btn btn-secondary"
             >
               Ver en GitHub
             </a>
