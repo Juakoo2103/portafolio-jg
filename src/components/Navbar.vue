@@ -1,5 +1,8 @@
 <template>
-  <nav class="navbar navbar-expand-lg bg-body-tertiary space-between" id="title">
+  <nav
+    class="navbar navbar-expand-lg bg-body-tertiary space-between"
+    id="title"
+  >
     <div class="container-fluid">
       <a class="navbar-brand" href="title">Joaquin Gonzalez Developer</a>
       <button
@@ -13,21 +16,7 @@
       >
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="bio">Bio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="projects"
-              >Proyectos</a
-            >
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="contact">Contacto</a>
-          </li>
-        </ul>
-      </div>
+      <div class="collapse navbar-collapse" id="navbarNav"></div>
     </div>
   </nav>
 </template>
