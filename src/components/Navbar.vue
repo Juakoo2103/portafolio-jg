@@ -4,7 +4,7 @@
     id="title"
   >
     <div class="container-fluid">
-      <a class="navbar-brand" href="title">Joaquin Gonzalez Developer</a>
+      <a class="navbar-brand" href="#">Joaquin Gonzalez Developer</a>
       <button
         class="navbar-toggler"
         type="button"
@@ -16,7 +16,19 @@
       >
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNav"></div>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+        </ul>
+      </div>
     </div>
   </nav>
 </template>
