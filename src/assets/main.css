@@ -1,17 +1,65 @@
+:root {
+  --color-bg: #0a0a0f;
+  --color-surface: #111827;
+  --color-surface-2: #1f2937;
+  --color-primary: #2563eb;
+  --color-cyan: #00cfff;
+  --color-purple: #8b5cf6;
+  --color-text: #ffffff;
+  --color-text-soft: #e5e7eb;
+  --color-border: rgba(229, 231, 235, 0.12);
+  --color-glow: rgba(37, 99, 235, 0.28);
+  --color-scheme: dark;
+  --body-gradient-top-left: rgba(139, 92, 246, 0.18);
+  --body-gradient-top-right: rgba(0, 207, 255, 0.14);
+  --body-gradient-bottom: rgba(37, 99, 235, 0.12);
+  --navbar-bg: rgba(10, 10, 15, 0.72);
+  --navbar-shadow: 0 16px 40px rgba(0, 0, 0, 0.24);
+  --card-bg: rgba(17, 24, 39, 0.92);
+  --input-bg: rgba(17, 24, 39, 0.72);
+  --input-placeholder: rgba(229, 231, 235, 0.6);
+}
+
+[data-theme="light"] {
+  --color-bg: #f6f8fc;
+  --color-surface: #ffffff;
+  --color-surface-2: #e5e7eb;
+  --color-primary: #2563eb;
+  --color-cyan: #0ea5e9;
+  --color-purple: #7c3aed;
+  --color-text: #0a0a0f;
+  --color-text-soft: #1f2937;
+  --color-border: rgba(15, 23, 42, 0.12);
+  --color-glow: rgba(37, 99, 235, 0.16);
+  --color-scheme: light;
+  --body-gradient-top-left: rgba(37, 99, 235, 0.12);
+  --body-gradient-top-right: rgba(14, 165, 233, 0.12);
+  --body-gradient-bottom: rgba(124, 58, 237, 0.08);
+  --navbar-bg: rgba(255, 255, 255, 0.78);
+  --navbar-shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
+  --card-bg: rgba(255, 255, 255, 0.92);
+  --input-bg: rgba(255, 255, 255, 0.88);
+  --input-placeholder: rgba(31, 41, 55, 0.58);
+}
+
+:root[data-theme] {
+  color-scheme: var(--color-scheme);
+}
+
 /* Definiendo el alias para las fuentes utilizando clases */
 .light {
   font-family: "Roboto Mono", serif;
-  font-weight: 100; /* Roboto Mono Light */
+  font-weight: 100;
 }
 
 .medium {
   font-family: "Roboto Mono", serif;
-  font-weight: 400; /* Roboto Mono Medium */
+  font-weight: 400;
 }
 
 .bold {
   font-family: "Roboto Mono", serif;
-  font-weight: 700; /* Roboto Mono Bold */
+  font-weight: 700;
 }
 
 * {
@@ -20,5 +68,186 @@
   box-sizing: border-box;
   font-family: "Roboto Mono", serif;
   font-size: 16px;
-  background-color: bisque;
+}
+
+html,
+body,
+#app {
+  min-height: 100%;
+}
+
+body {
+  background:
+    radial-gradient(
+      circle at top left,
+      var(--body-gradient-top-left),
+      transparent 34%
+    ),
+    radial-gradient(
+      circle at top right,
+      var(--body-gradient-top-right),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at bottom center,
+      var(--body-gradient-bottom),
+      transparent 38%
+    ),
+    linear-gradient(180deg, var(--color-bg) 0%, var(--color-surface) 100%);
+  color: var(--color-text);
+  transition:
+    background 240ms ease,
+    color 240ms ease;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.03),
+    transparent 40%
+  );
+  opacity: 0.55;
+}
+
+a {
+  color: var(--color-cyan);
+}
+
+a:hover {
+  color: var(--color-text);
+}
+
+::selection {
+  background: var(--color-primary);
+  color: var(--color-text);
+}
+
+.navbar {
+  background: var(--navbar-bg);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: var(--navbar-shadow);
+}
+
+.navbar-brand,
+.nav-link {
+  color: var(--color-text) !important;
+}
+
+.nav-link:hover,
+.nav-link:focus,
+.navbar-brand:hover,
+.navbar-brand:focus {
+  color: var(--color-cyan) !important;
+}
+
+.navbar-toggler {
+  border-color: var(--color-border);
+}
+
+.navbar-toggler:focus {
+  box-shadow: 0 0 0 0.2rem var(--color-glow);
+}
+
+.navbar-toggler-icon {
+  filter: invert(1) saturate(0);
+}
+
+[data-theme="light"] .navbar-toggler-icon {
+  filter: none;
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  background: var(--card-bg);
+  color: var(--color-text);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease;
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+  transform: translateY(-1px);
+  border-color: var(--color-cyan);
+}
+
+.theme-toggle svg {
+  width: 1.15rem;
+  height: 1.15rem;
+  fill: currentColor;
+}
+
+.card,
+.form-control,
+.btn-secondary {
+  border-color: var(--color-border);
+}
+
+.card {
+  background: var(--card-bg);
+  color: var(--color-text);
+}
+
+.card-text,
+.form-text,
+label,
+.bio p,
+.bio .light {
+  color: var(--color-text-soft) !important;
+}
+
+.form-control {
+  background: var(--input-bg);
+  color: var(--color-text);
+}
+
+.form-control::placeholder {
+  color: var(--input-placeholder);
+}
+
+.form-control:focus {
+  background: var(--input-bg);
+  color: var(--color-text);
+  border-color: var(--color-cyan);
+  box-shadow: 0 0 0 0.2rem var(--color-glow);
+}
+
+.btn-secondary {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-cyan));
+  color: var(--color-text);
+  border: 0;
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus-visible {
+  background: linear-gradient(135deg, var(--color-cyan), var(--color-purple));
+  color: var(--color-text);
+}
+
+.navbar .container-fluid {
+  gap: 0.75rem;
+}
+
+.navbar .navbar-collapse {
+  flex-grow: 0;
+}
+
+@media (max-width: 991.98px) {
+  .navbar-nav {
+    padding: 0.75rem 0 0.25rem;
+  }
 }

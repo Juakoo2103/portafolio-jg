@@ -43,7 +43,7 @@ h3 {
 }
 a {
   text-decoration: none;
-  color: black;
+  color: var(--color-text);
   transition: color 0.3s ease-in-out;
 }
 </style>
