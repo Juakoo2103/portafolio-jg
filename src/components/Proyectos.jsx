@@ -1,40 +1,13 @@
-// ponytail: lista estática curada; si crece, mover a fetch
+// ponytail: lista curada estática; agregar más proyectos acá cuando estén listos
 const projects = [
   {
-    name: 'blog-frontend',
-    title: 'Blog Frontend',
-    description: 'Plataforma moderna para crear y leer artículos con edición en tiempo real.',
-    repo: 'https://github.com/Juakoo2103/blog-frontend',
-    demo: '',
-    tag: 'Vue 3',
-    gradient: 'from-blue-900/60 to-purple-900/40',
-  },
-  {
-    name: 'app_qr',
-    title: 'App QR',
-    description: 'Generador y lector de códigos QR optimizado para dispositivos móviles y web.',
-    repo: 'https://github.com/Juakoo2103/app_qr',
-    demo: '',
-    tag: 'JS',
-    gradient: 'from-cyan-900/60 to-blue-900/40',
-  },
-  {
-    name: 'pokeAPI',
-    title: 'PokeAPI',
-    description: 'Explorador detallado de Pokémon que consume la API oficial con filtrado avanzado.',
-    repo: 'https://github.com/Juakoo2103/pokeAPI',
-    demo: '',
-    tag: 'API',
-    gradient: 'from-purple-900/60 to-pink-900/40',
-  },
-  {
-    name: 'viajes-chile',
-    title: 'Viajes Chile',
-    description: 'Sitio promocional de destinos turísticos nacionales con enfoque en UX visual.',
-    repo: 'https://github.com/Juakoo2103/viajes-chile',
-    demo: '',
-    tag: 'SASS',
-    gradient: 'from-green-900/60 to-cyan-900/40',
+    name: 'wordraw',
+    title: 'Wordraw',
+    description: 'Juego tipo Pictionary para grupos. Un jugador dibuja una palabra en secreto mientras el resto intenta adivinarla antes de que se acabe el tiempo.',
+    repo: 'https://github.com/Juakoo2103/wordraw',
+    demo: 'https://wordraw.juakoo.xyz/',
+    tags: ['React', 'Tailwind', 'Vite'],
+    gradient: 'from-violet-900/70 to-fuchsia-900/40',
   },
 ]
 
@@ -56,24 +29,32 @@ export default function Proyectos() {
         <div className="h-px flex-grow bg-outline-variant/20 mx-8 hidden md:block" />
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {projects.map((p, i) => (
-          <article key={p.name} className="glass-card flex flex-col h-full rounded-xl overflow-hidden group" data-usal={`fade-u duration-500 delay-${i * 100}`}>
-            {/* Placeholder image */}
-            <div className={`h-44 relative bg-gradient-to-br ${p.gradient} flex items-center justify-center`}>
+          <article
+            key={p.name}
+            className="glass-card flex flex-col h-full rounded-xl overflow-hidden group"
+            data-usal={`fade-u duration-500 delay-${i * 100}`}
+          >
+            {/* Placeholder con gradiente */}
+            <div className={`h-52 relative bg-gradient-to-br ${p.gradient} flex items-center justify-center`}>
               <span
-                className="text-5xl font-bold opacity-10 select-none"
-                style={{ fontFamily: '"Geist", sans-serif' }}
+                className="text-7xl font-bold select-none"
+                style={{ fontFamily: '"Geist", sans-serif', color: 'rgba(255,255,255,0.06)' }}
               >
                 {p.title[0]}
               </span>
-              <div className="absolute top-3 right-3">
-                <span
-                  className="bg-surface/80 backdrop-blur-md text-[10px] px-2 py-1 rounded font-bold uppercase tracking-wider border border-outline-variant/20 text-on-surface"
-                  style={{ fontFamily: '"JetBrains Mono", monospace' }}
-                >
-                  {p.tag}
-                </span>
+              {/* Tech tags */}
+              <div className="absolute top-3 right-3 flex gap-2 flex-wrap justify-end">
+                {p.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="bg-surface/80 backdrop-blur-md text-[10px] px-2 py-1 rounded font-bold uppercase tracking-wider border border-outline-variant/20 text-on-surface"
+                    style={{ fontFamily: '"JetBrains Mono", monospace' }}
+                  >
+                    {tag}
+                  </span>
+                ))}
               </div>
             </div>
 
@@ -88,16 +69,14 @@ export default function Proyectos() {
                 {p.description}
               </p>
               <div className="flex gap-3 mt-auto">
-                {p.demo && (
-                  <a
-                    href={p.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 text-center py-2 rounded-lg bg-primary/10 text-primary border border-primary/20 hover:bg-primary hover:text-on-primary transition-all font-bold text-sm"
-                  >
-                    Demo
-                  </a>
-                )}
+                <a
+                  href={p.demo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 text-center py-2 rounded-lg bg-primary/10 text-primary border border-primary/20 hover:bg-primary hover:text-on-primary transition-all font-bold text-sm"
+                >
+                  Demo
+                </a>
                 <a
                   href={p.repo}
                   target="_blank"
