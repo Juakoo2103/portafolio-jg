@@ -22,9 +22,9 @@ function TechCard({ name, img, desc }) {
 
   return (
     <div className="glass-card flex-shrink-0 w-36 flex flex-col items-center gap-4 px-6 py-6 rounded-xl mx-3 cursor-default group relative">
-      {/* Tooltip */}
+      {/* Tooltip — aparece abajo para no ser cortado por el overflow del carrusel */}
       <div
-        className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 w-52 pointer-events-none z-50
+        className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-52 pointer-events-none z-50
                    opacity-0 group-hover:opacity-100 transition-opacity duration-200"
         style={{
           background: 'rgba(25, 31, 47, 0.96)',
@@ -39,17 +39,17 @@ function TechCard({ name, img, desc }) {
           textAlign: 'center',
         }}
       >
-        {desc}
-        {/* Flecha */}
+        {/* Flecha apuntando arriba */}
         <span
-          className="absolute top-full left-1/2 -translate-x-1/2"
+          className="absolute bottom-full left-1/2 -translate-x-1/2"
           style={{
             width: 0, height: 0,
             borderLeft: '6px solid transparent',
             borderRight: '6px solid transparent',
-            borderTop: '6px solid rgba(25, 31, 47, 0.96)',
+            borderBottom: '6px solid rgba(25, 31, 47, 0.96)',
           }}
         />
+        {desc}
       </div>
 
       {/* Ícono */}
@@ -89,9 +89,10 @@ export default function Tecnologias() {
       </div>
 
       <div
-        className="relative py-6"
+        className="relative py-6 pb-20"
         style={{
           overflowX: 'hidden',
+          overflowY: 'visible',
           maskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)',
           WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)',
         }}
